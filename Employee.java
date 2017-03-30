@@ -1,35 +1,25 @@
-package ranga3;
-public class Employee implements Comparable<Employee>{
-	int id;
-	String name;
-	float salary;
+package Srealization;
+
+public class Employee  implements SeriInterface {
+
+
+	private static final long serialVersionUID = -4423666894518946280L;
+	 transient int id= 1234;
+	 String Name="sateesh";
 	public int getId() {
+	//ystem.out.println(id);
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {
-		return name;
+//System.out.println(Name);
+		return Name;
 	}
 	public void setName(String name) {
-		this.name = name;
+		Name = name;
 	}
-	public float getSalary() {
-		return salary;
-	}
-	public void setSalary(float salary) {
-		this.salary = salary;
-	}
-
-	public int compareTo(Employee o) {
-		if(this.salary>o.salary){
-			return 1;
-		}
-		else if(this.salary<o.salary){
-			return -1;
-		}
-		return 0;
-	}
-
+	 
+	
 }
