@@ -1,32 +1,37 @@
 package ranga1;
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-public class TestReader2 {
+public class TestReader1 {
 	public static void main(String[] args) {
 		File obj = new File("D:\\ranga.txt");
-		FileInputStream obj1 = null;
+		FileReader obj1 = null;
+		BufferedReader obj2 = null;
+		if(obj.exists()){
 			try {
-				obj1 = new FileInputStream(obj);
-				byte b[] = new byte[(int)obj.length()];
-				obj1.read(b);
-				for(byte a:b){
-					System.out.println((char)a);
+				obj1 = new FileReader(obj);
+				obj2 = new BufferedReader(obj1);
+				String s = obj2.readLine();
+				while(s!=null){
+					System.out.println(s);
+					s = obj2.readLine();
 				}
-			}catch (FileNotFoundException e) {
+			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 			finally{
 				try {
+					obj2.close();
 					obj1.close();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+				
 			}
-			
 		}
 	}
-
+}

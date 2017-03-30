@@ -3,18 +3,19 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-public class TestReader2 {
+public class IoReader {
 	public static void main(String[] args) {
-		File obj = new File("D:\\ranga.txt");
+		File obj = new File("D:\\ranga1.txt");
 		FileInputStream obj1 = null;
+		if(obj.exists()){
 			try {
 				obj1 = new FileInputStream(obj);
-				byte b[] = new byte[(int)obj.length()];
-				obj1.read(b);
-				for(byte a:b){
-					System.out.println((char)a);
+				int data=obj1.read();
+				while(data!=-1){
+					System.out.println((char)data);
+					data=obj1.read();
 				}
-			}catch (FileNotFoundException e) {
+			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -26,7 +27,6 @@ public class TestReader2 {
 					e.printStackTrace();
 				}
 			}
-			
 		}
 	}
-
+}
